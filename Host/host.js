@@ -1,5 +1,5 @@
 const selfVideo = document.getElementById("self-video")
-const othersVideo = document.getElementById("others-video")
+const peerStreamContainer = document.getElementById("peer-stream-container")
 const hostIdDisplay = document.getElementById("host-id")
 
 let userMedia = navigator.getUserMedia
@@ -29,8 +29,11 @@ peer.on('call',call=>{
     userMedia(otherConstraint, function(stream) {
         call.answer(stream); // Answer the call with an A/V stream.
         call.on('stream', function(remoteStream) {
-            othersVideo.srcObject = remoteStream
-            othersVideo.play()
+            const peerStream = document.createElement('video')
+            peerStream.srcObject = remoteStream
+            peerStream.className = 'video-box'
+            peerStream.play()
+            peerStreamContainer.appendChild(peerStream)
         });
       }, function(err) {
         console.log('Failed to get local stream' ,err);

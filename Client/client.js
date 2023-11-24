@@ -1,5 +1,5 @@
 const selfVideo = document.getElementById('self-video')
-const othersVideo = document.getElementById('others-video')
+const peerStreamContainer = document.getElementById("peer-stream-container")
 const joinButton = document.getElementById('join-button')
 
 let peer = new Peer()
@@ -27,8 +27,11 @@ joinButton.onclick = ()=>{
     userMedia(otherConstraint,stream=>{
             let call = peer.call(id, stream);
             call.on('stream', function(remoteStream) {
-            othersVideo.srcObject = remoteStream
-            othersVideo.play()
+                const peerStream = document.createElement('video')
+                peerStream.srcObject = remoteStream
+                peerStream.className = 'video-box'
+                peerStream.play()
+                peerStreamContainer.appendChild(peerStream)
             });
         }, function(err) {
             console.log('Failed to get local stream' ,err);
