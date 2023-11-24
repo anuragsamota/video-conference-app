@@ -29,7 +29,7 @@ joinButton.onclick = ()=>{
             call.on('stream', function(remoteStream) {
                 const peerStream = document.createElement('video')
                 peerStream.srcObject = remoteStream
-                peerStream.className = 'video-box'
+                peerStream.className = 'card'
                 peerStream.play()
                 peerStreamContainer.appendChild(peerStream)
             });

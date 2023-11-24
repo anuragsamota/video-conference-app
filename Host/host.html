@@ -1,19 +1,17 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html >
+<html data-theme="black">
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <title>Host page</title>
         <script defer src="../peerjs.min.js"></script>
         <script defer src="host.js" type="text/javascript" charset="utf-8"></script>
-        <link rel="stylesheet" href="host.css" type="text/css" media="all" />
-        <link rel="stylesheet" href="../style.css">
         <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.6/dist/full.min.css" rel="stylesheet" type="text/css" />
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body>
         <div id="host-id"></div>
-        <div class="wrapper-flex">
-            <video id="self-video" class="video-box"></video>
+        <div class="grid grid-cols-4">
+            <video id="self-video" class="card"></video>
             <div id="peer-stream-container">
 
             </div>
